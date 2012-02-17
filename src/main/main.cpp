@@ -5,31 +5,28 @@
 #include "graphics/texturehandler.h"
 
 #include "misc/timer.h"
+#include "statemanager.h"
+
+#include "scene_1.h"
 
 int main(int argc, char** argv) {
 
 	Window window;
 	window.createWindow(600, 400);
 
+	// no fullscreen while developing. easier this way.
+	// window.toggle_fullscreen();
+
 	OpenGL gl;
 	
 	TextureHandler::getSingleton().createTexture("test", "data/img.png");
 	TextureHandler::getSingleton().deleteTexture("test");
 
-	// TODO: Wrap this up.
-	std::vector<State*> states;
-	states.push_back(new TestScene());
-	unsigned currentState = 0;
-
-	long long prevTime = Timer::time_now();
-	long long currentTime;
-
-	while(currentState < states.size()) {
-	  currentTime = Timer::time_now();
-	  states[currentState]->tick( (currentTime - prevTime) / 1000.f );
+	StateManager stateManager;
+	stateManager.insertState(new TestScene());
+	
+	while(stateManager.tick()) {
 	  window.swap_buffers();
-	  if(!states[currentState]->isActive())
-		++currentState;
 	}
 
 	std::cout << argv[argc-1] << ": \\o/" << std::endl;
