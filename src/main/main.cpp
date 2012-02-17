@@ -6,9 +6,11 @@
 #include "graphics/shaders/shaders.h"
 
 #include "misc/timer.h"
-#include "statemanager.h"
 
-#include "scene_1.h"
+#include "main/statemanager.h"
+#include "main/scene_1.h"
+
+#include "sound/gamesound.h"
 
 int main(int argc, char** argv) {
 
@@ -26,14 +28,20 @@ int main(int argc, char** argv) {
 	Shaders shaders;
 	shaders.createShader("testShader", "shaders/test.vert", "shaders/test.frag");
 
+	GameSound soundSystem;
+	soundSystem.playMusic("music/test.mp3");
+
 	StateManager stateManager;
+	stateManager.insertState(new TestScene());
+	stateManager.insertState(new TestScene());
+	stateManager.insertState(new TestScene());
 	stateManager.insertState(new TestScene());
 	
 	while(stateManager.tick()) {
 	  window.swap_buffers();
 	}
 
+	soundSystem.endMusic();
 	std::cout << argv[argc-1] << ": \\o/" << std::endl;
 }
-
 

@@ -20,7 +20,7 @@ bool StateManager::tick() {
   if(!states[currentState]->isActive()) {
 	states[currentState]->exitState();
 	if(++currentState < states.size())
-	  states[++currentState]->enterState();
+	  states[currentState]->enterState();
   }
   
   return currentState < states.size();
