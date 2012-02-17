@@ -1,4 +1,4 @@
-DIRS = src src/graphics src/graphics/models src/graphics/skybox src/graphics/frustum src/misc
+DIRS = src src/graphics src/graphics/models src/graphics/shaders src/graphics/skybox src/graphics/frustum src/misc
 INCLUDE_DIRS = -I src
 OPENMP   = -fopenmp
 

@@ -1,4 +1,4 @@
-#include "shaders.h"
+#include "graphics/shaders/shaders.h"
 
 #include <iostream>
 #include <sstream>
@@ -9,6 +9,7 @@ using namespace std;
 
 
 void Shaders::createShader(const string& shaderName, const string& vertexShader, const string& fragmentShader) {
+  std::cout << "creating shader (" << shaderName << ")" << std::endl;
   shaders[shaderName] = shared_ptr<Shader>(new Shader(vertexShader, fragmentShader));
 }
 

@@ -1,4 +1,4 @@
-#include "shader.h"
+#include "graphics/shaders/shader.h"
 
 #include <cassert>
 #include <iostream>
@@ -22,8 +22,6 @@ char* Shader::readFile(const std::string& path)
 	
 	fseek(fd, 0, SEEK_END);
 	len = ftell(fd);
-	
-	cerr << "File '" << path << "' is " << len << " long" << endl;
 	
 	fseek(fd, 0, SEEK_SET);
 	

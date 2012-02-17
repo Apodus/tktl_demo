@@ -3,6 +3,7 @@
 #include "graphics/opengl.h"
 #include "graphics/window.h"
 #include "graphics/texturehandler.h"
+#include "graphics/shaders/shaders.h"
 
 #include "misc/timer.h"
 #include "statemanager.h"
@@ -21,6 +22,9 @@ int main(int argc, char** argv) {
 	
 	TextureHandler::getSingleton().createTexture("test", "data/img.png");
 	TextureHandler::getSingleton().deleteTexture("test");
+
+	Shaders shaders;
+	shaders.createShader("testShader", "shaders/test.vert", "shaders/test.frag");
 
 	StateManager stateManager;
 	stateManager.insertState(new TestScene());

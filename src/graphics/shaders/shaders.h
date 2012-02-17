@@ -1,13 +1,12 @@
 #ifndef SHADERS_H
 #define SHADERS_H
 
-#include "opengl.h"
+#include "graphics/opengl.h"
+#include "graphics/shaders/shader.h"
 
 #include <map>
 #include <string>
 #include <memory>
-
-#include "shader.h"
 
 class Shaders
 {

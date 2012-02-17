@@ -1,7 +1,7 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-#include "opengl.h"
+#include "graphics/opengl.h"
 
 #include <string>
 #include <map>

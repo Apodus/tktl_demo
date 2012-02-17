@@ -17,8 +17,6 @@ void TestScene::exitState()
 
 void TestScene::tick(float dt)
 {
-  std::cout << dt << std::endl;
-  std::cout << "tick" << std::endl;
   activeTime += dt;
 }
 
