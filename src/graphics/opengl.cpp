@@ -24,10 +24,10 @@ void OpenGL::init() {
   
   GLenum status = glewInit();
   if (status == GLEW_OK) {
-	std::cerr << "GLEW JIHUU :DD" << std::endl;
+	std::cerr << "GLEW Init successful." << std::endl;
   } else {
 	std::stringstream ss;
-	ss << "GLEW initialization failed: " << glewGetErrorString(status);
+	ss << "GLEW Init failed: " << glewGetErrorString(status);
 	throw std::runtime_error(ss.str());
   }
   
